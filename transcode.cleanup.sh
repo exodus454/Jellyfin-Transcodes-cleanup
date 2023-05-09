@@ -2,7 +2,7 @@
 # ! /bin/sh
 
 SCRIPT_DIR=/config/ffmpeg
-TRANSCODES_DIR=/config/transcodes
+TRANSCODES_DIR=/dev/shm
 SEMAPHORE_DIR=/config/semaphore # use RAM drive for FFMPEG transcoding PID and PAUSE files
 LOG_DIR=/config/log
 CLEANUP_LOG=$LOG_DIR/transcode.cleanup.log # create a single log file (easier when using OFF, WARN or INFO level logging)
@@ -27,11 +27,11 @@ CLEANUP_LOG_LEVEL_NAMES=(OFF WARN INFO DEBUG TRACE)
 CLEANUP_LOG_LEVEL=$1                   # 0 - OFF | 1 - WARN | 2 - INFO | 3 - DEBUG | 4 - TRACE
 CLEANUP_LOG_TIMESTAMP=$2               # 1 - log entries will be prefixed with timestamp | 0 - log entries without timestamp
 CLEANUP_INACTIVITY_SHUTDOWN_SECONDS=3600 # seconds of inactivity when no PID file is found after which the cleanup script will exit (default: 3600 = 1 hour)
-CLEANUP_ALL_WHEN_SPACE_REACHES_PERC=98 # when used space is at least this number % of total space then delete most of TS files (default: 98)
+CLEANUP_ALL_WHEN_SPACE_REACHES_PERC=80 # when used space is at least this number % of total space then delete most of TS files (default: 98)
 CLEANUP_ALL_KEEP_TS_MOD_SECONDS=1      # when deleting most of TS files to free up space, do not delete files which where modified less than this num of sec before
 # allowed space will be calculated per each Segment ID
 #CLEANUP_WHEN_SPACE_REACHES_PERC=35     # when used space is at least this number % of total space then delete TS files keeping few subsequent by TS ID
-FFMPEG_WRAP_PAUSE_PERC=10              # FFMPEG WRAP will be paused (SIGSTOP) when space used by TS files takes up this much % of total space
+FFMPEG_WRAP_PAUSE_PERC=25              # FFMPEG WRAP will be paused (SIGSTOP) when space used by TS files takes up this much % of total space
 FFMPEG_POS_TIME_STALL=3                # if TS file won't be created within this number of seconds since last FFMPEG position change then FFMPEG will be resumed even if it runs over allowed space
 NO_SPACE_LM_FILE_COUNT=5               # when no space left in transcodes directory, this is number of last modified TS files to keep in array (potentially corrupted)
 # cannot keep min number of subsequent files - for each Segment ID there will be different allowed space, and files will be kept based on consumed space

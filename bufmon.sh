@@ -2,7 +2,7 @@
 #
 # Customization
 #
-TRANSCODES_DIR=/config/transcodes
+TRANSCODES_DIR=/dev/shm
 SEMAPHORE_DIR=/config/semaphore # use RAM drive for FFMPEG transcoding PID and PAUSE files
 LIST_TS_FILES_FIRST=5 # list only first 12 TS files when total file count exceeds LIST_TS_FILES_FIRST+LIST_TS_FILES_LAST
 LIST_TS_FILES_LAST=3   # list only last   3 TS files when total file count exceeds LIST_TS_FILES_FIRST+LIST_TS_FILES_LAST

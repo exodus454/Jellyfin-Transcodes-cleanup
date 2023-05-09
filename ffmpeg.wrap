@@ -2,7 +2,7 @@
 #title           :  Wrapper script for FFMPEG customizations
 #description     :  This script is a wrapper for Jellyfin ffmpeg
 
-FFMPEG_DIR=/usr/lib/jellyfin-ffmpeg/ffmpeg # non-Docker server path to FFMPEG usually is /usr/bin/ffmpeg
+FFMPEG_DIR=/config/jellyfin-ffmpeg/ # non-Docker server path to FFMPEG usually is /usr/bin/ffmpeg
 SCRIPT_DIR=/config/ffmpeg
 TRANSCODES_DIR=/dev/shm
 CLEANUP_PROG=$SCRIPT_DIR/transcode.cleanup.sh
