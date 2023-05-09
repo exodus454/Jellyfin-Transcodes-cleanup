@@ -3,7 +3,7 @@
 #description     :  This script is a wrapper for Jellyfin ffmpeg
 
 FFMPEG_DIR=/usr/lib/jellyfin-ffmpeg # non-Docker server path to FFMPEG usually is /usr/bin/ffmpeg
-SCRIPT_DIR=/config/ffmpeg
+SCRIPT_DIR=/ffmpeg-wrap
 TRANSCODES_DIR=/dev/shm
 CLEANUP_PROG=$SCRIPT_DIR/transcode.cleanup.sh
 

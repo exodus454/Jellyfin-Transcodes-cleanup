@@ -1,7 +1,7 @@
 #!/bin/bash
 # ! /bin/sh
 
-SCRIPT_DIR=/config/ffmpeg
+SCRIPT_DIR=/ffmpeg-wrap
 TRANSCODES_DIR=/dev/shm
 SEMAPHORE_DIR=/config/semaphore # use RAM drive for FFMPEG transcoding PID and PAUSE files
 LOG_DIR=/config/log
